@@ -8,12 +8,14 @@ import com.rbih.loanApplication.enums.RiskBand;
 import java.util.List;
 import java.util.UUID;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+
 public record LoanApplicationResponse(
         UUID applicationId,
         ApplicationStatus status,
         RiskBand riskBand,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         OfferResponse offer,
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         List<RejectionReason> rejectionReasons
 
 ) {
