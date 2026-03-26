@@ -18,7 +18,7 @@ public final class InterestRateCalculator {
 
         rate = rate.add(switch (riskBand) {
             case LOW    -> BigDecimal.ZERO;
-            case MODERATE -> new BigDecimal("1.50");
+            case MEDIUM -> new BigDecimal("1.50");
             case HIGH   -> new BigDecimal("3.00");
         });
 
