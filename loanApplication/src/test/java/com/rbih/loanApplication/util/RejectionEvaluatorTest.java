@@ -31,8 +31,8 @@ public class RejectionEvaluatorTest {
     }
 
     @Test
-    void shouldRejectWhenEmiExceeds60Percent() {
-        List<RejectionReason> r = RejectionEvaluator.evaluate(720, 30, 36, new BigDecimal("5000000"), new BigDecimal("50000"));
+    void shouldRejectWhenEmiExceeds50Percent() {
+        List<RejectionReason> r = RejectionEvaluator.evaluate(400, 30, 12, new BigDecimal("50000"), new BigDecimal("500000"));
         assertTrue(r.contains(RejectionReason.EMI_EXCEEDS_50_PERCENT));
     }
 

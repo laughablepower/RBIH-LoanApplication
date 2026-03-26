@@ -16,7 +16,7 @@ public final class InterestRateCalculatorTest {
 
         @Test
         void shouldAddRiskPremiumForMedium() {
-        assertEquals(new BigDecimal("13.50"), InterestRateCalculator.calculate(RiskBand.MODERATE, EmploymentType.SALARIED, new BigDecimal("500000")));
+        assertEquals(new BigDecimal("13.50"), InterestRateCalculator.calculate(RiskBand.MEDIUM, EmploymentType.SALARIED, new BigDecimal("500000")));
     }
 
         @Test
