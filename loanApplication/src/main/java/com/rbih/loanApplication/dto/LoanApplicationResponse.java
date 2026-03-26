@@ -1,5 +1,6 @@
 package com.rbih.loanApplication.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.rbih.loanApplication.enums.ApplicationStatus;
 import com.rbih.loanApplication.enums.RejectionReason;
 import com.rbih.loanApplication.enums.RiskBand;
@@ -7,6 +8,7 @@ import com.rbih.loanApplication.enums.RiskBand;
 import java.util.List;
 import java.util.UUID;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public record LoanApplicationResponse(
         UUID applicationId,
         ApplicationStatus status,
