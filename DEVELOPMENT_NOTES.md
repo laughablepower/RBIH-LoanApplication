@@ -1,8 +1,8 @@
-RBIH-LoanApplication
+# RBIH-LoanApplication
 
 ## Overall Approach
-
-This service follows a clean layered architecture with a clear separation between web (controller), orchestration (service), domain logic (pure static utility classes), and persistence (JPA repository). The domain logic classes (EmiCalculator, RiskClassifier, InterestRateCalculator, EligibilityEvaluator) are intentionally static and stateless, making them trivially unit-testable.
+This service follows a clean layered architecture with a clear separation between web (controller), orchestration (service), domain logic (pure static utility classes), and persistence (JPA repository).
+The domain logic classes (EmiCalculator, RiskClassifier, InterestRateCalculator, EligibilityEvaluator) are intentionally static and stateless.
 
 ## Key Design Decisions
 
@@ -27,8 +27,10 @@ This service follows a clean layered architecture with a clear separation betwee
 
 ## Assumptions
 
-- The eligibility EMI check seems to have ambiguity between conditions(Whether to choose between 50% OR 60% for Validation). Hence, have used EMI> 50 % of salary.
+- The eligibility EMI check seems to have ambiguity between conditions (Whether to choose between 50% OR 60% for Validation). Hence, have used EMI> 50 % of salary.
 - The age + tenure boundary (> 65) is exclusive - exactly 65 is allowed.
+- RiskBand Calculator sets Risk Band as **HIGH** even if credit score <600.
+- All the Rejection reasons are evaluated and populated (if any) in Response DTO.
 - Both APPROVED and REJECTED responses return HTTP 200. The 400 status is reserved for validation failures only.
 
 ## Improvements With More Time
